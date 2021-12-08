@@ -5,7 +5,6 @@ from prefect import task, Flow
 from prefect.storage import GCS, GitHub
 
 
-
 @task
 def nothing() -> None:
     print("hey!")
@@ -20,12 +19,11 @@ with Flow("test-k8s") as flow:
 flow.run_config = KubernetesRun(
     env={
         "DELETE_FINISHED_JOBS": "False",
-        "PREFECT__CLOUD__API_KEY": os.environ["CLOUD_API_KEY"],
         "IMAGE_PULL_SECRETS": ""
     }
 )
 
 flow.storage = GitHub(
     repo="abrookins/test_flows",
-    path="k8s.py"
+    path="k8s.py",
 )
