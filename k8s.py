@@ -2,7 +2,7 @@ import os
 
 from prefect.run_configs import KubernetesRun
 from prefect import task, Flow
-from prefect.storage import GCS
+from prefect.storage import GCS, GitHub
 
 
 
