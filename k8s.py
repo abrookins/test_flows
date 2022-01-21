@@ -19,7 +19,6 @@ with Flow("test-k8s") as flow:
 flow.run_config = KubernetesRun(
     env={
         "DELETE_FINISHED_JOBS": "False",
-        "IMAGE_PULL_SECRETS": ""
     }
 )
 
